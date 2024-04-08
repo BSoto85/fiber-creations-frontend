@@ -7,6 +7,11 @@ import Login from "./Components/Auth/Login";
 import Dashboard from "./Components/Auth/Dashboard";
 import NavBar from "./Components/Common/NavBar";
 import LandingPage from "./Components/Auth/LandingPage";
+import NewForm from "./Pages/NewForm";
+import EditForm from "./Pages/EditForm";
+import Index from "./Pages/Index";
+import Show from "./Pages/Show";
+import FourOFour from "./Pages/FourOFour";
 
 function App() {
   const navigate = useNavigate();
@@ -38,6 +43,9 @@ function App() {
           path="/register"
           element={<Register setToggleLogin={setToggleLogin} />}
         />
+        <Route path="/creations" element={<Index />} />
+        <Route path="/creations/:id" element={<Show />} />
+        <Route path="*" element={<FourOFour />} />
 
         <Route element={<ProtectedRoute />}>
           {/* Place protected routes here */}
@@ -45,6 +53,8 @@ function App() {
             path="/dashboard"
             element={<Dashboard handleLogout={handleLogout} />}
           />
+          <Route path="/new" element={<NewForm />} />
+          <Route path="/edit" element={<EditForm />} />
         </Route>
       </Routes>
     </>
