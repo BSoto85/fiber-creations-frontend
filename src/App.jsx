@@ -14,6 +14,7 @@ import Show from "./Pages/Show";
 import FourOFour from "./Pages/FourOFour";
 
 function App() {
+  const [creations, setCreations] = useState([]);
   const navigate = useNavigate();
   const [toggleLogin, setToggleLogin] = useState(false);
 
@@ -43,8 +44,14 @@ function App() {
           path="/register"
           element={<Register setToggleLogin={setToggleLogin} />}
         />
-        <Route path="/creations" element={<Index />} />
-        <Route path="/creations/:id" element={<Show />} />
+        <Route
+          path="/creations"
+          element={<Index creations={creations} setCreations={setCreations} />}
+        />
+        <Route
+          path="/creations/:id"
+          element={<Show setCreations={setCreations} />}
+        />
         <Route path="*" element={<FourOFour />} />
 
         <Route element={<ProtectedRoute />}>

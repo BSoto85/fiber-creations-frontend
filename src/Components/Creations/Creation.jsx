@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const Creation = ({ creation }) => {
+  const navigate = useNavigate();
   const { creation_type, for_sale, price, material, image } = creation;
 
   return (
@@ -9,6 +12,9 @@ const Creation = ({ creation }) => {
       <p style={for_sale ? { display: "block" } : { display: "none" }}>
         ${price}
       </p>
+      <button onClick={() => navigate(`/creations/${creation.id}`)}>
+        Details
+      </button>
     </div>
   );
 };

@@ -3,9 +3,7 @@ import Creation from "./Creation";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const Creations = () => {
-  const [creations, setCreations] = useState([]);
-
+const Creations = ({ creations, setCreations }) => {
   useEffect(() => {
     fetch(`${URL}/api/creations`)
       .then((res) => res.json())

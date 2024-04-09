@@ -1,9 +1,9 @@
 import Creations from "../Components/Creations/Creations";
 
-const Index = () => {
+const Index = ({ creations, setCreations }) => {
   return (
     <div>
-      <Creations />
+      <Creations creations={creations} setCreations={setCreations} />
     </div>
   );
 };
