@@ -1,10 +1,14 @@
 import React from "react";
 import CreationDetails from "../Components/Creations/CreationDetails";
 
-const Show = ({ creations, setCreations }) => {
+const Show = ({ creations, setCreations, user }) => {
   return (
     <div>
-      <CreationDetails creations={creations} setCreations={setCreations} />
+      <CreationDetails
+        creations={creations}
+        setCreations={setCreations}
+        user={user}
+      />
     </div>
   );
 };

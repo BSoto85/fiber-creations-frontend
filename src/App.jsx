@@ -15,8 +15,9 @@ import FourOFour from "./Pages/FourOFour";
 
 function App() {
   const [creations, setCreations] = useState([]);
-  const navigate = useNavigate();
   const [toggleLogin, setToggleLogin] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   async function handleLogout() {
     localStorage.removeItem("token");
@@ -32,6 +33,8 @@ function App() {
         handleLogout={handleLogout}
         toggleLogin={toggleLogin}
         setToggleLogin={setToggleLogin}
+        user={user}
+        setUser={setUser}
       />
 
       <Routes>
@@ -46,11 +49,17 @@ function App() {
         />
         <Route
           path="/creations"
-          element={<Index creations={creations} setCreations={setCreations} />}
+          element={
+            <Index
+              creations={creations}
+              setCreations={setCreations}
+              user={user}
+            />
+          }
         />
         <Route
           path="/creations/:id"
-          element={<Show setCreations={setCreations} />}
+          element={<Show setCreations={setCreations} user={user} />}
         />
         <Route path="*" element={<FourOFour />} />
 
@@ -60,8 +69,8 @@ function App() {
             path="/dashboard"
             element={<Dashboard handleLogout={handleLogout} />}
           />
-          <Route path="/new" element={<NewForm />} />
-          <Route path="/edit" element={<EditForm />} />
+          <Route path="/new" element={<NewForm user={user} />} />
+          <Route path="/edit" element={<EditForm user={user} />} />
         </Route>
       </Routes>
     </>

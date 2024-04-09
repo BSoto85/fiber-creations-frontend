@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const NavBar = ({ toggleLogin, handleLogout }) => {
-  const [user, setUser] = useState(null);
-
+const NavBar = ({ toggleLogin, handleLogout, user, setUser }) => {
   useEffect(() => {
     if (!toggleLogin) setUser(null);
 

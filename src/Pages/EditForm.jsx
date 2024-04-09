@@ -1,9 +1,9 @@
 import CreationEditForm from "../Components/Creations/CreationEditForm";
 
-const EditForm = () => {
+const EditForm = ({ user }) => {
   return (
     <div>
-      <CreationEditForm />
+      <CreationEditForm user={user} />
     </div>
   );
 };

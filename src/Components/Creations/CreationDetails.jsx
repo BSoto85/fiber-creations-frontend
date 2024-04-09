@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const CreationDetails = ({ creations, setCreations }) => {
+const CreationDetails = ({ creations, setCreations, user }) => {
   const [oneCreation, setOneCreation] = useState({});
 
   const { id } = useParams();
@@ -18,8 +18,12 @@ const CreationDetails = ({ creations, setCreations }) => {
     price,
     stitch,
     updated_at,
-    user_id,
+    username,
   } = oneCreation;
+
+  console.log(user);
+  console.log(user.username);
+  console.log("Username:", username);
 
   // const formattedDate = (oneCreationDate) => {
   //   const dateArr = oneCreationDate.split("-").map((num) => +num);
@@ -77,10 +81,15 @@ const CreationDetails = ({ creations, setCreations }) => {
       <p style={for_sale ? { display: "block" } : { display: "none" }}>
         ${price}
       </p>
-      <Link to={"/edit"}>
-        <button>Edit</button>
-      </Link>
+      {username === user.username && (
+        <Link to={"/edit"}>
+          <button>Edit</button>
+        </Link>
+      )}
       {/* <button onClick={handleDelete}>Delete</button> */}
+      <Link to={"/creations"}>
+        <button>Back</button>
+      </Link>
     </div>
   );
 };
