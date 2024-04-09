@@ -49,17 +49,17 @@ function App() {
         />
         <Route
           path="/creations"
+          element={<Index creations={creations} setCreations={setCreations} />}
+        />
+        <Route
+          path="/creations/:id"
           element={
-            <Index
+            <Show
               creations={creations}
               setCreations={setCreations}
               user={user}
             />
           }
-        />
-        <Route
-          path="/creations/:id"
-          element={<Show setCreations={setCreations} user={user} />}
         />
         <Route path="*" element={<FourOFour />} />
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -7,6 +7,8 @@ const CreationDetails = ({ creations, setCreations, user }) => {
   const [oneCreation, setOneCreation] = useState({});
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const {
     created_at,
@@ -21,44 +23,40 @@ const CreationDetails = ({ creations, setCreations, user }) => {
     username,
   } = oneCreation;
 
-  console.log(user);
-  console.log(user.username);
-  console.log("Username:", username);
+  const formattedDate = (oneCreationDate) => {
+    const dateArr = oneCreationDate.split("-").map((num) => +num);
+    const [year, month, day] = dateArr;
+    const newCreationDate = new Date(year, month - 1, day);
+    return newCreationDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
 
-  // const formattedDate = (oneCreationDate) => {
-  //   const dateArr = oneCreationDate.split("-").map((num) => +num);
-  //   const [year, month, day] = dateArr;
-  //   const newCreationDate = new Date(year, month - 1, day);
-  //   return newCreationDate.toLocaleDateString("en-US", {
-  //     year: "numeric",
-  //     month: "long",
-  //     day: "numeric",
-  //   });
-  // };
-
-  // const handleDelete = () => {
-  //   if (confirm(`Are you sure you want to delete your creation?`)) {
-  //     fetch(`${URL}/api/creations/${id}`, {
-  //       method: "DELETE",
-  //       headers: {
-  //         "CSRF-Token": csrfToken,
-  //       },
-  //       credentials: "include",
-  //     })
-  //       .then((res) => res.json())
-  //       .then((responseJSON) => {
-  //         const copyCreationsArray = [...creations];
-  //         const indexDeletedCreation = copyCreationsArray.findIndex(
-  //           (creation) => {
-  //             return creation.id === id;
-  //           }
-  //         );
-  //         copyCreationsArray.splice(indexDeletedCreation, 1);
-  //         setCreations(copyCreationsArray);
-  //       })
-  //       .catch((error) => console.error(error));
-  //   }
-  // };
+  const handleDelete = () => {
+    if (confirm(`Are you sure you want to delete your creation?`)) {
+      fetch(`${URL}/api/creations/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((responseJSON) => {
+          const copyCreationsArray = [...creations];
+          const indexDeletedCreation = copyCreationsArray.findIndex(
+            (creation) => {
+              return creation.id === id;
+            }
+          );
+          copyCreationsArray.splice(indexDeletedCreation, 1);
+          setCreations(copyCreationsArray);
+          navigate("/creations");
+        })
+        .catch((error) => console.error(error));
+    }
+  };
 
   useEffect(() => {
     fetch(`${URL}/api/creations/${id}`)
@@ -70,10 +68,11 @@ const CreationDetails = ({ creations, setCreations, user }) => {
     <div>
       <img src={image} alt={creation_type} />
       <h3>{creation_type}</h3>
-      {updated_at === null ? (
-        <p>Added on: {created_at} </p>
+      {console.log(created_at)}
+      {created_at ? (
+        <p>Added on: {formattedDate(created_at)} </p>
       ) : (
-        <p>Updated on: {updated_at}</p>
+        <p>Updated on: {formattedDate(updated_at)}</p>
       )}
       <p>Material: {material}</p>
       {stitch && <p>Stitch: {stitch}</p>}
@@ -81,12 +80,14 @@ const CreationDetails = ({ creations, setCreations, user }) => {
       <p style={for_sale ? { display: "block" } : { display: "none" }}>
         ${price}
       </p>
-      {username === user.username && (
-        <Link to={"/edit"}>
-          <button>Edit</button>
-        </Link>
+      {user && username === user.username && (
+        <section>
+          <Link to={"/edit"}>
+            <button>Edit</button>
+          </Link>
+          <button onClick={handleDelete}>Delete</button>
+        </section>
       )}
-      {/* <button onClick={handleDelete}>Delete</button> */}
       <Link to={"/creations"}>
         <button>Back</button>
       </Link>

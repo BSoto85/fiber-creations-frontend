@@ -1,4 +1,4 @@
-import CreationNewForm from "../Components/Creations/CreationNewFrom";
+import CreationNewForm from "../Components/Creations/CreationNewForm";
 
 const NewForm = ({ user }) => {
   return (

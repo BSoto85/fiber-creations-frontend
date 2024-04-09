@@ -27,12 +27,12 @@ const NavBar = ({ toggleLogin, handleLogout, user, setUser }) => {
 
   return (
     <div className="navbar-container">
-      <h1>Navbar Component</h1>
-      <h2>
-        <Link style={{ textDecoration: "none" }} to="/">
-          Your image or Logo (click here to go to Landing Page)
-        </Link>
-      </h2>
+      <Link to={"/creations"}>
+        <h1>Fiber Creations</h1>
+      </Link>
+      <h3>
+        <Link to="/new">Add Art</Link>
+      </h3>
 
       {!toggleLogin ? (
         <Link to={"/login"}>
@@ -40,7 +40,7 @@ const NavBar = ({ toggleLogin, handleLogout, user, setUser }) => {
         </Link>
       ) : (
         <div>
-          {user && <span>Hello, {user.username.toUpperCase()}? | </span>}
+          {user && <span>Hello, {user.username.toUpperCase()} | </span>}
           <Link onClick={handleLogout}>
             <span>Logout</span>
           </Link>
