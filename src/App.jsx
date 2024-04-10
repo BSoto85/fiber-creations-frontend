@@ -21,9 +21,7 @@ function App() {
 
   async function handleLogout() {
     localStorage.removeItem("token");
-
     await setToggleLogin(false);
-
     navigate("/login");
   }
 
@@ -69,8 +67,17 @@ function App() {
             path="/dashboard"
             element={<Dashboard handleLogout={handleLogout} />}
           />
-          <Route path="/new" element={<NewForm user={user} />} />
-          <Route path="/edit" element={<EditForm user={user} />} />
+          <Route
+            path="/new"
+            element={
+              <NewForm
+                user={user}
+                creations={creations}
+                setCreations={setCreations}
+              />
+            }
+          />
+          <Route path="/edit" element={<EditForm />} />
         </Route>
       </Routes>
     </>

@@ -68,18 +68,17 @@ const CreationDetails = ({ creations, setCreations, user }) => {
     <div>
       <img src={image} alt={creation_type} />
       <h3>{creation_type}</h3>
-      {console.log(created_at)}
       {created_at ? (
-        <p>Added on: {formattedDate(created_at)} </p>
-      ) : (
-        <p>Updated on: {formattedDate(updated_at)}</p>
-      )}
+        updated_at === null ? (
+          <p>Added on: {formattedDate(created_at)} </p>
+        ) : (
+          <p>Updated on: {formattedDate(updated_at)} </p>
+        )
+      ) : null}
       <p>Material: {material}</p>
       {stitch && <p>Stitch: {stitch}</p>}
       <p>Description: {description}</p>
-      <p style={for_sale ? { display: "block" } : { display: "none" }}>
-        ${price}
-      </p>
+      {for_sale ? <p>${price}</p> : null}
       {user && username === user.username && (
         <section>
           <Link to={"/edit"}>

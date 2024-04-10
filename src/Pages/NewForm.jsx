@@ -1,9 +1,13 @@
 import CreationNewForm from "../Components/Creations/CreationNewForm";
 
-const NewForm = ({ user }) => {
+const NewForm = ({ user, creations, setCreations }) => {
   return (
     <div>
-      <CreationNewForm user={user} />
+      <CreationNewForm
+        user={user}
+        creations={creations}
+        setCreations={setCreations}
+      />
     </div>
   );
 };
