@@ -18,7 +18,7 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
     material: "",
     description: "",
     for_sale: false,
-    price: "",
+    price: 0,
     image: "",
     user_id: user ? user.id : null,
     created_at: setCurrentDate(),
@@ -43,27 +43,33 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
-    fetch(`${URL}/api/creations`, {
-      method: "POST",
-      body: JSON.stringify(newCreation),
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setCreations([data, ...creations]);
+    if (!newCreation.image) {
+      window.alert("Please upload an image before submitting the form.");
+    } else {
+      console.log(JSON.stringify(newCreation));
+      const token = localStorage.getItem("token");
+      fetch(`${URL}/api/creations`, {
+        method: "POST",
+        body: JSON.stringify(newCreation),
+        headers: {
+          authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
       })
-      .then(() => {
-        navigate(`/creations`);
-      })
-      .catch((error) => console.error("catch", error));
+        .then((res) => res.json())
+        .then((data) => {
+          setCreations([data, ...creations]);
+        })
+        .then(() => {
+          navigate(`/creations`);
+        })
+        .catch((error) => console.error("catch", error));
+    }
   };
 
   return (
     <div>
+      <UploadWidget setImageURL={setImageURL} />
       <form onSubmit={handleSubmit}>
         <label htmlFor="creation_type">Type:</label>
         <select
@@ -72,6 +78,7 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
           onChange={handleTextChange}
           required
         >
+          <option value="none">Select a type</option>
           <option value="Blanket">Blanket</option>
           <option value="Scarf">Scarf</option>
           <option value="Doily">Doily</option>
@@ -94,6 +101,7 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
           onChange={handleTextChange}
           required
         >
+          <option value="none">Select a material</option>
           <option value="Acrylic">Acrylic</option>
           <option value="Cotton">Cotton</option>
           <option value="Wool">Wool</option>
@@ -110,7 +118,6 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={newCreation.for_sale}
-          required
         />
         {newCreation.for_sale && (
           <>
@@ -134,7 +141,6 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
           onChange={handleTextChange}
           placeholder="Describe your art"
         />
-        <UploadWidget setImageURL={setImageURL} />
         <input type="submit" />
         <Link to={"/creations"}>Cancel</Link>
       </form>

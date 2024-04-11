@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Creation from "./Creation";
+import "./Creations.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -12,7 +13,7 @@ const Creations = ({ creations, setCreations }) => {
   }, []);
 
   return (
-    <div>
+    <div className="creations-container">
       {creations.length > 0 &&
         creations.map((creation) => (
           <Creation key={creation.id} creation={creation} />

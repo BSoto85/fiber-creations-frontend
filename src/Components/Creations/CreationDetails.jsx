@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import "./Creations.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -65,7 +66,7 @@ const CreationDetails = ({ creations, setCreations, user }) => {
   }, [id]);
 
   return (
-    <div>
+    <div className="creation-card">
       <img src={image} alt={creation_type} />
       <h3>{creation_type}</h3>
       {created_at ? (

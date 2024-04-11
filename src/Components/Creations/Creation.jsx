@@ -5,7 +5,7 @@ const Creation = ({ creation }) => {
   const { creation_type, for_sale, price, material, image } = creation;
 
   return (
-    <div>
+    <div className="creation-card">
       <img src={image} alt={creation_type} />
       <h3>{creation_type}</h3>
       <p>{material}</p>
