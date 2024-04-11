@@ -82,7 +82,7 @@ const CreationDetails = ({ creations, setCreations, user }) => {
       {for_sale ? <p>${price}</p> : null}
       {user && username === user.username && (
         <section>
-          <Link to={"/edit"}>
+          <Link to={`/edit/${id}`}>
             <button>Edit</button>
           </Link>
           <button onClick={handleDelete}>Delete</button>

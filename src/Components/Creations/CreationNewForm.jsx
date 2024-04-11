@@ -124,10 +124,9 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
             <label htmlFor="price">Price:</label>
             <input
               id="price"
-              type="text"
+              type="number"
               name="price"
               value={newCreation.price}
-              placeholder="00.00"
               onChange={handleTextChange}
               required
             />

@@ -77,7 +77,16 @@ function App() {
               />
             }
           />
-          <Route path="/edit" element={<EditForm />} />
+          <Route
+            path="/edit/:id"
+            element={
+              <EditForm
+                user={user}
+                creations={creations}
+                setCreations={setCreations}
+              />
+            }
+          />
         </Route>
       </Routes>
     </>

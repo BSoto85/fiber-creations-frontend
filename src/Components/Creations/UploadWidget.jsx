@@ -14,7 +14,6 @@ const UploadWidget = ({ setImageURL }) => {
       function (error, result) {
         if (result && result.event === "success") {
           const uploadedURL = result.info.secure_url;
-          console.log(uploadedURL);
           setImageURL(uploadedURL);
         } else if (error) {
           console.error("Error uploading image:", error);
