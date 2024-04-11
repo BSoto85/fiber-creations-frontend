@@ -1,7 +1,11 @@
-import React from "react";
+import FourOFourDetails from "../Components/Common/FourOFourDetails";
 
 const FourOFour = () => {
-  return <div>FourOFour</div>;
+  return (
+    <div>
+      <FourOFourDetails />
+    </div>
+  );
 };
 
 export default FourOFour;
