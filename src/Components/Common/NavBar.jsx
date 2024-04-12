@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-
 import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -30,23 +30,26 @@ const NavBar = ({ toggleLogin, handleLogout, user, setUser }) => {
       <Link to={"/creations"}>
         <h1>Fiber Creations</h1>
       </Link>
-      <h3>
-        <Link to={user ? "/new" : "/login"}>Add Art</Link>
-      </h3>
-
-      {!toggleLogin ? (
-        <Link to={"/login"}>
-          <span>Login</span>
+      <section>
+        <Link to={user ? "/new" : "/login"}>
+          <span>Add Art</span>
         </Link>
-      ) : (
-        <div>
-          {user && <span>Hello, {user.username.toUpperCase()} | </span>}
-          <Link onClick={handleLogout}>
-            <span>Logout</span>
+        <Link>
+          <span>About Dev</span>
+        </Link>
+        {!toggleLogin ? (
+          <Link to={"/login"}>
+            <span>Login</span>
           </Link>
-        </div>
-      )}
-      <hr />
+        ) : (
+          <div>
+            {user && <span>Hello, {user.username.toUpperCase()} | </span>}
+            <Link onClick={handleLogout}>
+              <span>Logout</span>
+            </Link>
+          </div>
+        )}
+      </section>
     </div>
   );
 };

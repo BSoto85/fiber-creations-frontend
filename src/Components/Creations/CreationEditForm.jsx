@@ -105,7 +105,6 @@ const CreationEditForm = ({ creations, setCreations, user }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUpdateCreation(data);
         setUpdateCreation({ ...data, updated_at: setCurrentDate() });
       })

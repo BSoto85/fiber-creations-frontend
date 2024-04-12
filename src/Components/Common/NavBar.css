@@ -1,0 +1,24 @@
+.navbar-container h1 {
+  font-family: "Courgette";
+  font-size: 40px;
+  background-color: rgb(229 8 72);
+}
+
+.navbar-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding: 20px;
+  background-color: rgb(229 8 72);
+}
+
+.navbar-container section {
+  display: flex;
+  text-align: end;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(229 8 72);
+}
+
+.navbar-container span {
+  background-color: rgb(229 8 72);
+}
