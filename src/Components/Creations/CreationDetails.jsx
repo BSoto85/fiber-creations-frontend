@@ -66,9 +66,9 @@ const CreationDetails = ({ creations, setCreations, user }) => {
   }, [id]);
 
   return (
-    <div className="creation-card">
+    <div className="creation-card details-card">
       <img src={image} alt={creation_type} />
-      <h3>{creation_type}</h3>
+      <h3>Type: {creation_type}</h3>
       {created_at ? (
         updated_at === null ? (
           <p>Added on: {formattedDate(created_at)} </p>
@@ -81,7 +81,7 @@ const CreationDetails = ({ creations, setCreations, user }) => {
       <p>Description: {description}</p>
       {for_sale ? <p>${price}</p> : null}
       {user && username === user.username && (
-        <section>
+        <section className="edit-and-delete-btn-sect">
           <Link to={`/edit/${id}`}>
             <button>Edit</button>
           </Link>
@@ -89,7 +89,7 @@ const CreationDetails = ({ creations, setCreations, user }) => {
         </section>
       )}
       <Link to={"/creations"}>
-        <button>Back</button>
+        <button>Back to home</button>
       </Link>
     </div>
   );

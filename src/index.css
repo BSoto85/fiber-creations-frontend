@@ -18,3 +18,14 @@ a {
 span:hover {
   color: rgb(61 191 197);
 }
+
+button {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: rgb(229 8 72);
+}

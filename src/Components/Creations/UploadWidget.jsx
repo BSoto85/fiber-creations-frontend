@@ -22,7 +22,11 @@ const UploadWidget = ({ setImageURL }) => {
     );
   }, []);
 
-  return <button onClick={() => widgetRef.current.open()}>Add Image</button>;
+  return (
+    <button onClick={() => widgetRef.current.open()} className="add-image-btn">
+      Add Image
+    </button>
+  );
 };
 
 export default UploadWidget;

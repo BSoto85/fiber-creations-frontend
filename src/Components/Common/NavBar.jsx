@@ -34,7 +34,7 @@ const NavBar = ({ toggleLogin, handleLogout, user, setUser }) => {
         <Link to={user ? "/new" : "/login"}>
           <span>Add Art</span>
         </Link>
-        <Link>
+        <Link to={"/about"}>
           <span>About Dev</span>
         </Link>
         {!toggleLogin ? (

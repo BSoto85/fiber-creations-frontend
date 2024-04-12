@@ -12,6 +12,7 @@ import EditForm from "./Pages/EditForm";
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import FourOFour from "./Pages/FourOFour";
+import About from "./Pages/About";
 
 function App() {
   const [creations, setCreations] = useState([]);
@@ -59,6 +60,7 @@ function App() {
             />
           }
         />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<FourOFour />} />
 
         <Route element={<ProtectedRoute />}>

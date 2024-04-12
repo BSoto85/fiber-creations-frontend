@@ -7,10 +7,10 @@ const Creation = ({ creation }) => {
   return (
     <div className="creation-card">
       <img src={image} alt={creation_type} />
-      <h3>{creation_type}</h3>
-      <p>{material}</p>
+      <h3>Type: {creation_type}</h3>
+      <p> Material: {material}</p>
       <p style={for_sale ? { display: "block" } : { display: "none" }}>
-        ${price}
+        Price: ${price}
       </p>
       <button onClick={() => navigate(`/creations/${creation.id}`)}>
         Details

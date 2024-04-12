@@ -1,0 +1,93 @@
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: rgb(61 191 197);
+  border-radius: 15px;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 400px;
+  font-size: 20px;
+  padding: 20px;
+  align-items: center;
+}
+
+.form-container label,
+.form-container section,
+.form-container a {
+  background-color: rgb(61 191 197);
+}
+
+.submit:hover {
+  background-color: rgb(229 8 72);
+}
+
+.form-container a:hover {
+  color: rgb(229 8 72);
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+  background-color: white;
+  color: black;
+}
+
+.form-container input,
+.form-container select {
+  margin-left: 50px;
+  width: 200px;
+  height: 2em;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.form-container label {
+  text-decoration: underline;
+}
+
+.form-container section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}
+.form-container textarea {
+  margin-left: 50px;
+  font-size: 16px;
+  resize: none;
+  width: 300px;
+  height: 4em;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+}
+
+.form-container input {
+  width: fit-content;
+  padding: 5px;
+}
+
+.submit {
+  margin-right: 250px;
+}
+
+.add-image-btn {
+  font-size: 16px;
+  margin-left: 35%;
+  margin-top: 100px;
+  width: 30%;
+}
+
+.for-sale-section {
+  gap: 15px;
+}
+
+/* .add-image-btn:hover {
+  background-color: rgb(61 191 197);
+} */
+
+#for_sale {
+  width: 30px;
+}
