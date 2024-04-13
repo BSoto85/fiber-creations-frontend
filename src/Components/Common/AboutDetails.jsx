@@ -3,7 +3,7 @@ import "./AboutDetails.css";
 const AboutDetails = () => {
   return (
     <div className="about-container">
-      <h1 className="about-dev">About Fiber Creations Developer</h1>
+      <h1 className="about-dev">About the Developer</h1>
       <ul className="developer-list">
         <li className="developer">
           <h2>Brenda</h2>
@@ -13,7 +13,7 @@ const AboutDetails = () => {
             target="_blank"
           >
             <img
-              src="https://res.cloudinary.com/dgifdj6nx/image/upload/v1711730824/TeaWhips-BrendaAbout_vnayip.jpg"
+              src="https://res.cloudinary.com/dnqfg86zq/image/upload/v1712965350/n1nx7wrgie8sd7l41wwq.jpg"
               alt="Brenda!"
               width="300"
               height="300"

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -62,36 +63,45 @@ const Login = ({ setToggleLogin }) => {
   }
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Login</h2>
-      <button onClick={handleDemoSignIn}>Demo User</button>
+    <div className="login-container">
+      <section>
+        <h2>Login</h2>
+      </section>
+      <section>
+        <button onClick={handleDemoSignIn}>Demo User</button>
+      </section>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          <input
-            id="username"
-            value={user.username}
-            type="text"
-            placeholder="username"
-            autoComplete="username"
-            onChange={handleChange}
-          />
-        </label>
-
-        <label htmlFor="password">
-          <input
-            id="password"
-            value={user.password}
-            type="password"
-            placeholder="password"
-            onChange={handleChange}
-            autoComplete="current-password"
-          />
-        </label>
-        <button>Submit</button>
+        <section className="user-and-pwd">
+          <label htmlFor="username">
+            <input
+              id="username"
+              value={user.username}
+              type="text"
+              placeholder="username"
+              autoComplete="username"
+              onChange={handleChange}
+            />
+          </label>
+          <label htmlFor="password">
+            <input
+              id="password"
+              value={user.password}
+              type="password"
+              placeholder="password"
+              onChange={handleChange}
+              autoComplete="current-password"
+            />
+          </label>
+        </section>
+        <section className="login-submit">
+          <button>Submit</button>
+        </section>
       </form>
-      <p>
-        No Account? <Link to="/register">Register</Link>
-      </p>
+      <section>
+        <p>
+          No Account? <Link to="/register">Register</Link>
+        </p>
+      </section>
     </div>
   );
 };

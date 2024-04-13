@@ -196,7 +196,7 @@ const CreationEditForm = ({ creations, setCreations, user }) => {
         </section>
         <section className="form-buttons">
           <input type="submit" className="submit" />
-          <Link to={"/creations"}>Cancel</Link>
+          <Link to={`/creations/${id}`}>Cancel</Link>
         </section>
       </form>
     </div>

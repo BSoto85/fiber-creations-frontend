@@ -23,7 +23,7 @@ function App() {
   async function handleLogout() {
     localStorage.removeItem("token");
     await setToggleLogin(false);
-    navigate("/login");
+    navigate("/creations");
   }
 
   return (

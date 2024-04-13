@@ -1,17 +1,19 @@
 .creations-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
   padding: 30px;
 }
 
 .creation-card {
-  border: 2px solid black;
   border-radius: 15px;
   padding: 15px;
   text-align: center;
   background-color: rgb(61 191 197);
-  font-size: 20px;
+}
+
+.creation-card h3 {
+  font-size: 24px;
 }
 
 .creation-card img {
@@ -27,6 +29,7 @@
 .creation-card p {
   background-color: rgb(61 191 197);
   padding-bottom: 10px;
+  font-size: 20px;
 }
 
 .details-card {
@@ -35,16 +38,18 @@
   margin-top: 100px;
 }
 
-.details-card button {
+.details-card button,
+.creation-card button {
   font-size: 16px;
 }
 
 .edit-and-delete-btn-sect {
   background-color: rgb(61 191 197);
+  place-items: center;
 }
 
 .edit-and-delete-btn-sect button {
-  margin-left: 20px;
-  margin-bottom: 10px;
+  margin: 10px;
+  margin-top: 0;
   font-size: 16px;
 }

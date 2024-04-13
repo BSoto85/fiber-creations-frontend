@@ -1,3 +1,16 @@
+h2 {
+  font-size: 2em;
+  color: white;
+}
+
+p {
+  font-size: 16px;
+}
+
+.about-container h1 {
+  margin-top: 50px;
+}
+
 .about-container {
   max-width: 800px;
   margin: auto;
@@ -15,28 +28,20 @@
 
 .developer {
   width: 45%;
-  margin: 15px;
+  margin-top: 50px;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
   background-color: rgb(61 191 197);
 }
 
-.developer:hover {
-  transform: scale(1.05);
+.developer img {
+  border-radius: 50%;
 }
 
 .about-dev {
   font-size: 2.5em;
   color: white;
   text-align: center;
-}
-
-h2 {
-  font-size: 1.5em;
-  color: white;
 }
 
 .github-link {
@@ -51,10 +56,11 @@ h2 {
 }
 
 .fun-fact {
-  font-size: 1em;
-  color: #777;
+  font-size: 20px;
+  color: white;
 }
 
-.developer h2 {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+.fun-fact b {
+  background-color: rgb(61 191 197);
+  font-size: 20px;
 }
