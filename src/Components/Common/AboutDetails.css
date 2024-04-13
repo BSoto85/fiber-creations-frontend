@@ -38,6 +38,10 @@ p {
   border-radius: 50%;
 }
 
+.developer h2 {
+  background-color: rgb(61 191 197);
+}
+
 .about-dev {
   font-size: 2.5em;
   color: white;

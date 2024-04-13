@@ -13,7 +13,7 @@
 }
 
 .login-container section,
-h2,
+.login-container h2,
 p,
 a {
   background-color: rgb(61 191 197);
@@ -26,6 +26,8 @@ a {
 .login-submit {
   padding-top: 20px;
   background-color: rgb(61 191 197);
+  display: flex;
+  justify-content: space-evenly;
 }
 .login-container input {
   background-color: white;
@@ -51,4 +53,19 @@ a {
 
 .login-container p {
   font-size: 18px;
+}
+
+.register-container h3,
+.register-container section {
+  background-color: rgb(61 191 197);
+}
+
+.register-container section {
+  padding-bottom: 15px;
+  padding-right: 15px;
+}
+
+.submit-section {
+  display: flex;
+  justify-content: space-evenly;
 }

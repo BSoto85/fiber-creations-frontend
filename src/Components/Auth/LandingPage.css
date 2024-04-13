@@ -1,0 +1,14 @@
+.landing-container {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 15%;
+}
+
+.landing-container img {
+  border-radius: 20px;
+  margin-top: 50px;
+}
+
+.landing-container a {
+  background-color: rgb(38 42 55);
+}

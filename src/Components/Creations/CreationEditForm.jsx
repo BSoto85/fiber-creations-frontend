@@ -41,10 +41,10 @@ const CreationEditForm = ({ creations, setCreations, user }) => {
   };
 
   const setImageURL = (uploadedURL) => {
-    setUpdateCreation({
-      ...updateCreation,
+    setNewCreation((prevState) => ({
+      ...prevState,
       image: uploadedURL,
-    });
+    }));
   };
 
   const handleSubmit = (e) => {

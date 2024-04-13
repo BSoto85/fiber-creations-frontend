@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
+import "./LandingPage.css";
 
 function LandingPage() {
   return (
-    <div style={{ textAlign: "center", marginTop: 100 }}>
-      <h1>This is Your Landing Page</h1>
-
-      <h3>
-        Dashboard is a protected component. If you are not logged in and you try
-        to navigate to the component you will be sent to the Login Page. Try It!
-      </h3>
-      <Link to="/dashboard">Dashboard</Link>
+    <div className="landing-container">
+      <h1>Welcome to Fiber Creations</h1>
+      <Link to={"/creations"}>
+        <img
+          src="https://res.cloudinary.com/dnqfg86zq/image/upload/v1713049994/kd0lzvutgynuk6ecnabr.gif"
+          alt="Cat playing with yarn ball"
+        />
+      </Link>
     </div>
   );
 }

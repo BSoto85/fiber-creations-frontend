@@ -4,7 +4,6 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import ProtectedRoute from "./Components/Auth/ProtectedRoute";
 import Register from "./Components/Auth/Register";
 import Login from "./Components/Auth/Login";
-import Dashboard from "./Components/Auth/Dashboard";
 import NavBar from "./Components/Common/NavBar";
 import LandingPage from "./Components/Auth/LandingPage";
 import NewForm from "./Pages/NewForm";
@@ -65,10 +64,6 @@ function App() {
 
         <Route element={<ProtectedRoute />}>
           {/* Place protected routes here */}
-          <Route
-            path="/dashboard"
-            element={<Dashboard handleLogout={handleLogout} />}
-          />
           <Route
             path="/new"
             element={

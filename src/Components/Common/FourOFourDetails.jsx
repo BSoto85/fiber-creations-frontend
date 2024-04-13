@@ -9,9 +9,11 @@ const FourOFourDetails = () => {
         src="https://res.cloudinary.com/dnqfg86zq/image/upload/v1712932112/eskhcetnsflmyluhlurk.png"
         alt=""
       />
-      <Link to={"/creations"}>
-        <span>Back to creations</span>
-      </Link>
+      <section className="back-link">
+        <Link to={"/creations"}>
+          <span>Back to creations</span>
+        </Link>
+      </section>
     </div>
   );
 };

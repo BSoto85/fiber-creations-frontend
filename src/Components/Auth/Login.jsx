@@ -95,6 +95,9 @@ const Login = ({ setToggleLogin }) => {
         </section>
         <section className="login-submit">
           <button>Submit</button>
+          <Link>
+            <button>Back to home</button>
+          </Link>
         </section>
       </form>
       <section>
