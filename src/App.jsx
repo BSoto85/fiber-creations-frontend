@@ -13,6 +13,7 @@ import Show from "./Pages/Show";
 import FourOFour from "./Pages/FourOFour";
 import About from "./Pages/About";
 import CartView from "./Pages/CartView";
+import Footer from "./Components/Common/Footer";
 
 function App() {
   const [creations, setCreations] = useState([]);
@@ -94,6 +95,7 @@ function App() {
           />
         </Route>
       </Routes>
+      <Footer />
     </>
   );
 }

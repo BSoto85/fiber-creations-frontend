@@ -46,7 +46,11 @@ const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
       },
     })
       .then((res) => res.json())
-      .then((data) => setCart([...cart, data]))
+      .then((data) => {
+        alert("Added to cart");
+        setCart([...cart, data]);
+        setOneCreation({ ...oneCreation, for_sale: false });
+      })
       .catch((error) => console.error("Error from handleCart", error));
   };
 
@@ -107,11 +111,12 @@ const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
       )}
       {user && for_sale && (
         <button onClick={handleCart} className="add-to-cart">
+          {/* grey out button so you can't click if the item is in the cart */}
           Add to Cart
         </button>
       )}
       <Link to={"/creations"}>
-        <button>Back to home</button>
+        <button>Back to art</button>
       </Link>
     </div>
   );

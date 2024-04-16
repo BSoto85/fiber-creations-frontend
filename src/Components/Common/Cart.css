@@ -1,0 +1,61 @@
+.item-card {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  background-color: rgb(61 191 197);
+  border-radius: 20px;
+  height: 150px;
+  margin: 30px;
+  margin-top: 50px;
+  padding: 20px;
+  align-items: center;
+}
+
+.item-card section {
+  background-color: rgb(61 191 197);
+}
+
+.item-card img {
+  border-radius: 15px;
+  width: 150px;
+}
+.price {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: fit-content;
+}
+
+.price h3 {
+  background-color: rgb(61 191 197);
+  font-size: 26px;
+}
+
+.price button,
+.checkout {
+  width: 100px;
+  font-size: 16px;
+}
+
+.total {
+  text-align: end;
+  margin-right: 30px;
+}
+
+.checkout {
+  margin-top: 20px;
+}
+
+.no-items {
+  background-color: rgb(38 42 55);
+  text-align: center;
+  margin-top: 10%;
+  font-size: 30px;
+}
+
+.no-items span {
+  cursor: pointer;
+}
+
+/* .no-items span:hover {
+  color: rgb(229 8 72);
+} */

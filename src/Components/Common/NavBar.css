@@ -32,3 +32,22 @@
 .navbar-container a {
   background-color: rgb(229 8 72);
 }
+
+.footer {
+  bottom: 0;
+  width: 100vw;
+  position: fixed;
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(229 8 72);
+}
+
+.footer p {
+  background-color: rgb(229 8 72);
+  font-size: 24px;
+}
+
+.footer span {
+  background-color: rgb(229 8 72);
+  font-size: 14px;
+}

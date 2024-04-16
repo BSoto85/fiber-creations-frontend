@@ -3,6 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 30px;
+  margin-bottom: 100px;
 }
 
 .creation-card {

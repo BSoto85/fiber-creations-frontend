@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   background-color: rgb(61 191 197);
   border-radius: 15px;
-  width: 30%;
+  width: 35vw;
   margin: 0 auto;
   margin-top: 50px;
   height: 400px;
@@ -57,7 +57,7 @@
   margin-left: 50px;
   font-size: 16px;
   resize: none;
-  width: 300px;
+  width: 400px;
   height: 4em;
   border-radius: 10px;
   text-align: center;
@@ -71,6 +71,7 @@
 
 .submit {
   margin-right: 250px;
+  margin-left: 300px;
 }
 
 .add-image-btn {
@@ -84,9 +85,9 @@
   gap: 15px;
 }
 
-/* .add-image-btn:hover {
-  background-color: rgb(61 191 197);
-} */
+.form-buttons {
+  text-align: center;
+}
 
 #for_sale {
   width: 30px;

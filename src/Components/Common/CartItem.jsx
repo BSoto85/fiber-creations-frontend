@@ -1,10 +1,14 @@
-const CartItem = ({ item, cart, setCart }) => {
-  const { image, creation_type, price } = item;
+import "./Cart.css";
 
+const URL = import.meta.env.VITE_BASE_URL;
+
+const CartItem = ({ item, cart, setCart }) => {
+  const { image, creation_type, price, cart_item_id } = item;
+  // console.log("------", item);
   const handleRemove = () => {
     if (confirm(`Are you sure you want to remove from cart?`)) {
       const token = localStorage.getItem("token");
-      fetch(`${URL}/api/`, {
+      fetch(`${URL}/api/cart/${cart_item_id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${token}`,
@@ -14,22 +18,25 @@ const CartItem = ({ item, cart, setCart }) => {
         .then((res) => res.json())
         .then((responseJSON) => {
           const copyCartArray = [...cart];
-          const indexDeletedCreation = copyCartArray.findIndex((creation) => {
-            return creation.id === id;
+          const filteredCopyCart = copyCartArray.filter((creation) => {
+            responseJSON.for_sale = true;
+            return creation.cart_item_id !== responseJSON.id;
           });
-          copyCartArray.splice(indexDeletedCreation, 1);
-          setCart(copyCartArray);
+          setCart(filteredCopyCart);
         })
         .catch((error) => console.error(error));
     }
   };
 
   return (
-    <div>
-      <img src={image} alt={creation_type} />
-      <p>{creation_type}</p>
-      <p>${price}</p>
-      <button onClick={handleRemove}>Remove</button>
+    <div className="item-card">
+      <section>
+        <img src={image} alt={creation_type} />
+      </section>
+      <section className="price">
+        <h3>${price}</h3>
+        <button onClick={handleRemove}>Remove</button>
+      </section>
     </div>
   );
 };
