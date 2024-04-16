@@ -53,3 +53,25 @@
   margin-top: 0;
   font-size: 16px;
 }
+
+.add-to-cart {
+  margin-right: 10px;
+}
+
+@media (max-width: 1140px) {
+  .navbar-container section {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .creations-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .creations-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -12,11 +12,13 @@ import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import FourOFour from "./Pages/FourOFour";
 import About from "./Pages/About";
+import CartView from "./Pages/CartView";
 
 function App() {
   const [creations, setCreations] = useState([]);
   const [toggleLogin, setToggleLogin] = useState(false);
   const [user, setUser] = useState(null);
+  const [cart, setCart] = useState([]);
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -56,6 +58,8 @@ function App() {
               creations={creations}
               setCreations={setCreations}
               user={user}
+              cart={cart}
+              setCart={setCart}
             />
           }
         />
@@ -83,6 +87,10 @@ function App() {
                 setCreations={setCreations}
               />
             }
+          />
+          <Route
+            path="/cart/:id"
+            element={<CartView user={user} cart={cart} setCart={setCart} />}
           />
         </Route>
       </Routes>

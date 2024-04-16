@@ -4,7 +4,7 @@ import "./Creations.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const CreationDetails = ({ creations, setCreations, user }) => {
+const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
   const [oneCreation, setOneCreation] = useState({});
 
   const { id } = useParams();
@@ -35,11 +35,28 @@ const CreationDetails = ({ creations, setCreations, user }) => {
     });
   };
 
+  const handleCart = () => {
+    const token = localStorage.getItem("token");
+    fetch(`${URL}/api/creations/${oneCreation.id}/cart/${user.id}`, {
+      method: "POST",
+      body: JSON.stringify(oneCreation),
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setCart([...cart, data]))
+      .catch((error) => console.error("Error from handleCart", error));
+  };
+
   const handleDelete = () => {
     if (confirm(`Are you sure you want to delete your creation?`)) {
+      const token = localStorage.getItem("token");
       fetch(`${URL}/api/creations/${id}`, {
         method: "DELETE",
         headers: {
+          authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       })
@@ -87,6 +104,11 @@ const CreationDetails = ({ creations, setCreations, user }) => {
           </Link>
           <button onClick={handleDelete}>Delete</button>
         </section>
+      )}
+      {user && for_sale && (
+        <button onClick={handleCart} className="add-to-cart">
+          Add to Cart
+        </button>
       )}
       <Link to={"/creations"}>
         <button>Back to home</button>

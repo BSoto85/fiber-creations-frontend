@@ -49,6 +49,9 @@ const NavBar = ({ toggleLogin, handleLogout, user, setUser }) => {
             </Link>
           </div>
         )}
+        <Link to={user ? `/cart/${user.id}` : `/login`}>
+          <img src="https://pngimg.com/d/shopping_cart_PNG4.png" alt="Cart" />
+        </Link>
       </section>
     </div>
   );
