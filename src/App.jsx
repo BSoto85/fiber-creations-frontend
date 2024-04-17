@@ -29,6 +29,11 @@ function App() {
     navigate("/creations");
   }
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) setLoggedInUser(true);
+  }, []);
+
   return (
     <>
       <NavBar
