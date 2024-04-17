@@ -9,6 +9,8 @@
   grid-template-columns: 2fr 1fr;
   padding: 20px;
   background-color: rgb(229 8 72);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .navbar-container section {
@@ -34,17 +36,22 @@
 }
 
 .footer {
+  display: flex;
   bottom: 0;
   width: 100vw;
   position: fixed;
+  justify-content: center;
   text-align: center;
   padding: 5px;
   background-color: rgb(229 8 72);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
 .footer p {
   background-color: rgb(229 8 72);
-  font-size: 24px;
+  font-size: 20px;
+  margin-right: 5px;
 }
 
 .footer span {
