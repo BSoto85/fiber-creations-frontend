@@ -41,6 +41,9 @@ const Cart = ({ user, cart, setCart, forSale, setForSale }) => {
           <button className="checkout">Checkout</button>
         </section>
       )}
+      <Link to={"/creations"}>
+        <button>Back to art</button>
+      </Link>
     </div>
   );
 };
