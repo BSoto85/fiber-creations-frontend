@@ -42,7 +42,7 @@ const Cart = ({ user, cart, setCart, forSale, setForSale }) => {
         </section>
       )}
       <Link to={"/creations"}>
-        <button>Back to art</button>
+        <button className="back">Back to art</button>
       </Link>
     </div>
   );

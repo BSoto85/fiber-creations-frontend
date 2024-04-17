@@ -119,7 +119,7 @@ const CreationDetails = ({
           <button onClick={handleDelete}>Delete</button>
         </section>
       )}
-      {user && forSale && (
+      {user && for_sale && cart.every((item) => item.id !== id) === true && (
         <button onClick={handleCart} className="add-to-cart">
           Add to Cart
         </button>

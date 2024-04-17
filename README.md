@@ -72,8 +72,8 @@ While Sarah loves making her own crochet items, she occasionally likes to purcha
 - Cart functionality was added to add and remove items from a user's cart.
 - An _About the Developer_ view was added.
 - Cloudinary was used to store images, videos, and music for our app.
-- A search bar was added to the index page where you can search by creation type or material. The search bar is not case sensitive.
+- A search bar was added to the index page where you can search by creation type or material. The search bar is not case sensitive.add
 
 ## Link
 
-[Zen Life App](https://rainbow-taffy-80336e.netlify.app/)
+[Fiber Creations](https://fibercreations.netlify.app/)
