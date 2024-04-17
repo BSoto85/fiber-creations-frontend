@@ -1,7 +1,7 @@
 .landing-container {
   margin: 0 auto;
   text-align: center;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .landing-container img {
@@ -24,7 +24,7 @@
 
 .landing-container section p {
   margin-top: 100px;
-  background-color: rgb(61 191 197);
+  /* background-color: rgb(61 191 197); */
 }
 
 .about-fiber {

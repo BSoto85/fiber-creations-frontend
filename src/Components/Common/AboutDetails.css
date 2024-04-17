@@ -68,3 +68,8 @@ p {
   background-color: rgb(61 191 197);
   font-size: 20px;
 }
+
+.about-container button {
+  margin-top: 20px;
+  font-size: 16px;
+}

@@ -36,7 +36,8 @@
 .details-card {
   margin: 0 auto;
   width: 50%;
-  margin-top: 100px;
+  margin-top: 10%;
+  margin-bottom: 150px;
 }
 
 .details-card button,
@@ -57,6 +58,24 @@
 
 .add-to-cart {
   margin-right: 10px;
+}
+
+.search-input {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 25px;
+  place-items: center;
+}
+
+.input-box {
+  height: 30px;
+  width: 250px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  background-color: white;
+  color: black;
 }
 
 @media (max-width: 1140px) {

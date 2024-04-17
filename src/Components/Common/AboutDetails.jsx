@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./AboutDetails.css";
 
 const AboutDetails = () => {
@@ -29,6 +30,9 @@ const AboutDetails = () => {
           </p>
         </li>
       </ul>
+      <Link to={"/creations"}>
+        <button>Back to art</button>
+      </Link>
     </div>
   );
 };
