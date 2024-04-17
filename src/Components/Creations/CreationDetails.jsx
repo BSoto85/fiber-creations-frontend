@@ -94,7 +94,7 @@ const CreationDetails = ({
       .then((data) => {
         setOneCreation(data);
       });
-  }, [id, cart]);
+  }, [id]);
 
   return (
     <div className="creation-card details-card">
