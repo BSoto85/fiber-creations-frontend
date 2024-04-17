@@ -5,10 +5,8 @@ import "./Cart.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const Cart = ({ user, cart, setCart }) => {
+const Cart = ({ user, cart, setCart, forSale, setForSale }) => {
   const total = cart.reduce((acc, cur) => acc + +cur.price, 0);
-
-  const handleCheckout = () => {};
 
   useEffect(() => {
     fetch(`${URL}/api/cart/${user.id}`)
@@ -27,15 +25,20 @@ const Cart = ({ user, cart, setCart }) => {
         </p>
       ) : (
         cart.map((item) => (
-          <CartItem key={item.id} item={item} cart={cart} setCart={setCart} />
+          <CartItem
+            key={item.id}
+            item={item}
+            cart={cart}
+            setCart={setCart}
+            forSale={forSale}
+            setForSale={setForSale}
+          />
         ))
       )}
       {cart.length > 0 && (
         <section className="total">
           <h2>Total: ${total}</h2>
-          <button onClick={handleCheckout} className="checkout">
-            Checkout
-          </button>
+          <button className="checkout">Checkout</button>
         </section>
       )}
     </div>

@@ -24,16 +24,14 @@
 
 .landing-container section p {
   margin-top: 100px;
-  /* background-color: rgb(61 191 197); */
 }
 
 .about-fiber {
-  font-size: 24px;
+  font-size: 30px;
   width: 80vw;
   text-align: center;
   padding: 15px;
   margin-left: 10%;
-  color: white;
-  background-color: rgb(61 191 197);
+  color: rgb(61 191 197);
   border-radius: 15px;
 }

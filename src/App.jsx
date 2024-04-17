@@ -20,6 +20,7 @@ function App() {
   const [toggleLogin, setToggleLogin] = useState(false);
   const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
+  const [forSale, setForSale] = useState();
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -61,6 +62,8 @@ function App() {
               user={user}
               cart={cart}
               setCart={setCart}
+              forSale={forSale}
+              setForSale={setForSale}
             />
           }
         />
@@ -91,7 +94,15 @@ function App() {
           />
           <Route
             path="/cart/:id"
-            element={<CartView user={user} cart={cart} setCart={setCart} />}
+            element={
+              <CartView
+                user={user}
+                cart={cart}
+                setCart={setCart}
+                forSale={forSale}
+                setForSale={setForSale}
+              />
+            }
           />
         </Route>
       </Routes>

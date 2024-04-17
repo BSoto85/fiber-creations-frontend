@@ -4,7 +4,15 @@ import "./Creations.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
+const CreationDetails = ({
+  creations,
+  setCreations,
+  user,
+  cart,
+  setCart,
+  forSale,
+  setForSale,
+}) => {
   const [oneCreation, setOneCreation] = useState({});
 
   const { id } = useParams();
@@ -49,7 +57,7 @@ const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
       .then((data) => {
         alert("Added to cart");
         setCart([...cart, data]);
-        setOneCreation({ ...oneCreation, for_sale: false });
+        setForSale(false);
       })
       .catch((error) => console.error("Error from handleCart", error));
   };
@@ -83,7 +91,9 @@ const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
   useEffect(() => {
     fetch(`${URL}/api/creations/${id}`)
       .then((res) => res.json())
-      .then((data) => setOneCreation(data));
+      .then((data) => {
+        setOneCreation(data);
+      });
   }, [id]);
 
   return (
@@ -109,9 +119,8 @@ const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
           <button onClick={handleDelete}>Delete</button>
         </section>
       )}
-      {user && for_sale && (
+      {user && forSale && (
         <button onClick={handleCart} className="add-to-cart">
-          {/* grey out button so you can't click if the item is in the cart */}
           Add to Cart
         </button>
       )}

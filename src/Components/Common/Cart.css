@@ -54,8 +54,5 @@
 
 .no-items span {
   cursor: pointer;
-}
-
-/* .no-items span:hover {
   color: rgb(229 8 72);
-} */
+}

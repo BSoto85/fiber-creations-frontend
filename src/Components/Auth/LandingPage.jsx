@@ -18,7 +18,7 @@ function LandingPage() {
           Fiber Creations started as a place where I could showcase my crocheted
           arts, and maybe even sell a few pieces. The site has evolved to
           include fiber art from anyone who wishes to share or sell their work.
-          I hope you are inspired by what you find.
+          I hope you are inspired by what you find!
         </p>
       </section>
     </div>

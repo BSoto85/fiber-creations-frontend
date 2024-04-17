@@ -2,9 +2,9 @@ import "./Cart.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const CartItem = ({ item, cart, setCart }) => {
+const CartItem = ({ item, cart, setCart, setForSale }) => {
   const { image, creation_type, price, cart_item_id } = item;
-  // console.log("------", item);
+
   const handleRemove = () => {
     if (confirm(`Are you sure you want to remove from cart?`)) {
       const token = localStorage.getItem("token");
@@ -19,10 +19,10 @@ const CartItem = ({ item, cart, setCart }) => {
         .then((responseJSON) => {
           const copyCartArray = [...cart];
           const filteredCopyCart = copyCartArray.filter((creation) => {
-            responseJSON.for_sale = true;
             return creation.cart_item_id !== responseJSON.id;
           });
           setCart(filteredCopyCart);
+          setForSale(true);
         })
         .catch((error) => console.error(error));
     }
