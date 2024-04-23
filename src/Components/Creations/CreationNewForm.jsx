@@ -5,6 +5,8 @@ import "./Forms.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 const CreationNewForm = ({ creations, setCreations, user }) => {
+  const [imageURL, setImageURL] = useState("");
+
   const setCurrentDate = () => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -35,13 +37,6 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
     setNewCreation({ ...newCreation, for_sale: !newCreation.for_sale });
   };
 
-  const setImageURL = (uploadedURL) => {
-    setNewCreation({
-      ...newCreation,
-      image: uploadedURL,
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!newCreation.image) {
@@ -51,7 +46,7 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
       const token = localStorage.getItem("token");
       fetch(`${URL}/api/creations`, {
         method: "POST",
-        body: JSON.stringify({ ...newCreation, image: uploadedURL }),
+        body: JSON.stringify({ ...newCreation, image: imageURL }),
         headers: {
           authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -70,7 +65,11 @@ const CreationNewForm = ({ creations, setCreations, user }) => {
 
   return (
     <div>
-      <UploadWidget setImageURL={setImageURL} />
+      <UploadWidget
+        setImageURL={setImageURL}
+        newCreation={newCreation}
+        setNewCreation={setNewCreation}
+      />
       <form onSubmit={handleSubmit} className="form-container">
         <section>
           <label htmlFor="creation_type">Type:</label>

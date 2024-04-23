@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const UploadWidget = ({ setImageURL }) => {
+const UploadWidget = ({ setImageURL, newCreation, setNewCreation }) => {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
 
@@ -16,6 +16,10 @@ const UploadWidget = ({ setImageURL }) => {
           const uploadedURL = result.info.secure_url;
           console.log(uploadedURL);
           setImageURL(uploadedURL);
+          setNewCreation({
+            ...newCreation,
+            image: uploadedURL,
+          });
         } else if (error) {
           console.error("Error uploading image:", error);
         }
