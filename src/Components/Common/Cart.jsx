@@ -37,7 +37,7 @@ const Cart = ({ user, cart, setCart, forSale, setForSale }) => {
       )}
       {cart.length > 0 && (
         <section className="total">
-          <h2>Total: ${total}</h2>
+          <h2>Total: ${total.toFixed(2)}</h2>
           <button className="checkout">Checkout</button>
         </section>
       )}
