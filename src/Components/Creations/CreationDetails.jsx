@@ -61,7 +61,6 @@ const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
       const cart_item_id = cart.find(
         (item) => item.id === oneCreation.id
       ).cart_item_id;
-      // console.log("CART ITEM", cart_item);
       fetch(`${URL}/api/cart/${cart_item_id}`, {
         method: "DELETE",
         headers: {
