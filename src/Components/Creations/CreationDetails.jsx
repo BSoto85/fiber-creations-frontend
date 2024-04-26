@@ -4,16 +4,9 @@ import "./Creations.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const CreationDetails = ({
-  creations,
-  setCreations,
-  user,
-  cart,
-  setCart,
-  forSale,
-  setForSale,
-}) => {
+const CreationDetails = ({ creations, setCreations, user, cart, setCart }) => {
   const [oneCreation, setOneCreation] = useState({});
+  const [inCart, setInCart] = useState(false);
 
   const { id } = useParams();
 
@@ -56,10 +49,37 @@ const CreationDetails = ({
       .then((res) => res.json())
       .then((data) => {
         alert("Added to cart");
+        setInCart(true);
         setCart([...cart, data]);
-        setForSale(false);
       })
       .catch((error) => console.error("Error from handleCart", error));
+  };
+
+  const handleRemove = () => {
+    if (confirm(`Are you sure you want to remove from cart?`)) {
+      const token = localStorage.getItem("token");
+      const cart_item_id = cart.find(
+        (item) => item.id === oneCreation.id
+      ).cart_item_id;
+      // console.log("CART ITEM", cart_item);
+      fetch(`${URL}/api/cart/${cart_item_id}`, {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((responseJSON) => {
+          const copyCartArray = [...cart];
+          const filteredCopyCart = copyCartArray.filter((creation) => {
+            return creation.cart_item_id !== responseJSON.id;
+          });
+          setCart(filteredCopyCart);
+          setInCart(false);
+        })
+        .catch((error) => console.error(error));
+    }
   };
 
   const handleDelete = () => {
@@ -93,6 +113,8 @@ const CreationDetails = ({
       .then((res) => res.json())
       .then((data) => {
         setOneCreation(data);
+        const isInCart = cart.find((item) => item.id === data.id);
+        isInCart !== undefined ? setInCart(true) : setInCart(false);
       });
   }, [id]);
 
@@ -116,12 +138,19 @@ const CreationDetails = ({
           <Link to={`/edit/${id}`}>
             <button>Edit</button>
           </Link>
-          <button onClick={handleDelete}>Delete</button>
+          <button onClick={handleDelete} className="remove-from-cart">
+            Delete
+          </button>
         </section>
       )}
-      {user && for_sale && (
+      {user && for_sale && !inCart && (
         <button onClick={handleCart} className="add-to-cart">
           Add to Cart
+        </button>
+      )}
+      {user && for_sale && inCart && (
+        <button onClick={handleRemove} className="remove-from-cart">
+          Remove from Cart
         </button>
       )}
       <Link to={"/creations"}>

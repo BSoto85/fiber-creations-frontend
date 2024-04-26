@@ -78,6 +78,15 @@
   color: black;
 }
 
+.remove-from-cart {
+  margin-right: 10px;
+  color: rgb(229 8 72);
+}
+
+.remove-from-cart:hover {
+  color: white;
+}
+
 @media (max-width: 1140px) {
   .navbar-container section {
     display: none;

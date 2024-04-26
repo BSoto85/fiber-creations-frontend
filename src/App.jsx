@@ -29,11 +29,6 @@ function App() {
     navigate("/creations");
   }
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   if (token) setLoggedInUser(true);
-  // }, []);
-
   return (
     <>
       <NavBar
@@ -67,8 +62,6 @@ function App() {
               user={user}
               cart={cart}
               setCart={setCart}
-              forSale={forSale}
-              setForSale={setForSale}
             />
           }
         />
@@ -99,15 +92,7 @@ function App() {
           />
           <Route
             path="/cart/:id"
-            element={
-              <CartView
-                user={user}
-                cart={cart}
-                setCart={setCart}
-                forSale={forSale}
-                setForSale={setForSale}
-              />
-            }
+            element={<CartView user={user} cart={cart} setCart={setCart} />}
           />
         </Route>
       </Routes>
