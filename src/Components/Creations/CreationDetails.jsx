@@ -10,10 +10,11 @@ const CreationDetails = ({
   user,
   cart,
   setCart,
-  forSale,
+  // forSale,
   setForSale,
 }) => {
   const [oneCreation, setOneCreation] = useState({});
+  const [inCart, setInCart] = useState(false);
 
   const { id } = useParams();
 
@@ -57,7 +58,7 @@ const CreationDetails = ({
       .then((data) => {
         alert("Added to cart");
         setCart([...cart, data]);
-        setForSale(false);
+        // setForSale(false);
       })
       .catch((error) => console.error("Error from handleCart", error));
   };
@@ -92,9 +93,16 @@ const CreationDetails = ({
     fetch(`${URL}/api/creations/${id}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log("CURRENT ITEM", data);
         setOneCreation(data);
+        const isInCart = cart.find((item) => item.id === data.id);
+        isInCart !== undefined ? setInCart(true) : setInCart(false);
       });
   }, [id]);
+
+  useEffect(() => {}, [cart]);
+
+  console.log("CART", cart);
 
   return (
     <div className="creation-card details-card">
@@ -119,11 +127,12 @@ const CreationDetails = ({
           <button onClick={handleDelete}>Delete</button>
         </section>
       )}
-      {user && for_sale && (
+      {user && for_sale && !inCart && (
         <button onClick={handleCart} className="add-to-cart">
           Add to Cart
         </button>
       )}
+      {user && for_sale && inCart && <button>Remove from Cart</button>}
       <Link to={"/creations"}>
         <button>Back to art</button>
       </Link>
