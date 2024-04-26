@@ -66,3 +66,12 @@
   text-align: center;
   margin-top: 50px;
 }
+
+.remove-from-cart {
+  margin-right: 10px;
+  color: rgb(229 8 72);
+}
+
+.remove-from-cart:hover {
+  color: white;
+}

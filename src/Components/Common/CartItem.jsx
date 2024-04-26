@@ -2,7 +2,7 @@ import "./Cart.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
-const CartItem = ({ item, cart, setCart, setForSale }) => {
+const CartItem = ({ item, cart, setCart }) => {
   const { image, creation_type, price, cart_item_id } = item;
 
   const handleRemove = () => {
@@ -22,7 +22,6 @@ const CartItem = ({ item, cart, setCart, setForSale }) => {
             return creation.cart_item_id !== responseJSON.id;
           });
           setCart(filteredCopyCart);
-          setForSale(true);
         })
         .catch((error) => console.error(error));
     }
@@ -35,7 +34,9 @@ const CartItem = ({ item, cart, setCart, setForSale }) => {
       </section>
       <section className="price">
         <h3>${price}</h3>
-        <button onClick={handleRemove}>Remove</button>
+        <button onClick={handleRemove} className="remove-from-cart">
+          Remove
+        </button>
       </section>
     </div>
   );
