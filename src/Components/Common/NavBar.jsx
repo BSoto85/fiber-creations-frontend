@@ -27,7 +27,7 @@ const NavBar = ({ toggleLogin, handleLogout, user, setUser }) => {
 
   return (
     <div className="navbar-container">
-      <Link to={"/creations"}>
+      <Link to={"/"}>
         <h1>Fiber Creations</h1>
       </Link>
       <section>
